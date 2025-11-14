@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Checklist from './components/Checklist';
-import TextInput from './components/TextInput';
 import Upload from './components/Upload';
+import AvatarGeneration from './components/AvatarGeneration';
 
 const Container = styled.div`
   height: 100vh;
@@ -43,15 +43,7 @@ function App() {
   };
 
   const handleNextFromChecklist = () => {
-    setCurrentPage('textinput');
-  };
-
-  const handleNextFromTextInput = () => {
     setCurrentPage('avatar');
-  };
-
-  const handlePreviousFromTextInput = () => {
-    setCurrentPage('checklist');
   };
 
   const renderPage = () => {
@@ -62,10 +54,8 @@ function App() {
         return <Upload onSkip={handleSkip} />;
       case 'checklist':
         return <Checklist onNext={handleNextFromChecklist} />;
-      case 'textinput':
-        return <TextInput onNext={handleNextFromTextInput} onPrevious={handlePreviousFromTextInput} />;
       case 'avatar':
-        return <IntroImage src="/frame23.png" alt="Avatar Screen" />;
+        return <AvatarGeneration />;
       default:
         return <IntroImage src="/intro.png" alt="Amy Avatar Intro" />;
     }
