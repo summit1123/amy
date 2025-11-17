@@ -27,6 +27,11 @@ const TopSection = styled.div`
   margin-right: auto;
   box-sizing: border-box;
   
+  @media (max-width: 480px) {
+    padding: 20px 15px;
+    margin-bottom: 15px;
+  }
+  
   @media (min-width: 768px) {
     padding: 40px 30px;
   }
@@ -127,6 +132,12 @@ const ProgressCard = styled.div`
   gap: 20px;
   box-sizing: border-box;
   
+  @media (max-width: 480px) {
+    margin: 0 10px 20px 10px;
+    height: 100px;
+    padding: 20px;
+  }
+  
   @media (max-width: 1023px) {
     margin: 0 20px 40px 20px;
   }
@@ -218,6 +229,10 @@ const LevelRow = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 24px;
+  
+  @media (max-width: 480px) {
+    gap: 15px;
+  }
   
   @media (min-width: 768px) {
     gap: 30px;

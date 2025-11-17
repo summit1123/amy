@@ -79,3 +79,29 @@ body {
     padding: 0;
   }
 }
+
+/* 핸드폰 화면 대응 */
+@media screen and (max-width: 640px) {
+  :root {
+    font-size: 12px; /* 작은 화면에서 폰트 크기 줄이기 */
+  }
+  
+  .App {
+    padding: 0;
+    overflow-x: hidden;
+  }
+}
+
+/* 소형 핸드폰 (iPhone SE 등) */
+@media screen and (max-width: 375px) {
+  :root {
+    font-size: 11px; /* 더 작은 화면에서 폰트 크기 더 줄이기 */
+  }
+}
+
+/* 대형 핸드폰 (iPhone Pro Max 등) */
+@media screen and (max-width: 480px) {
+  :root {
+    font-size: 12px;
+  }
+}

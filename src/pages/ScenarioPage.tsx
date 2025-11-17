@@ -37,6 +37,11 @@ const Container = styled.div`
   width: 100%;
   position: relative;
   padding: 40px 50px 140px 50px;
+  
+  @media (max-width: 480px) {
+    padding: 20px 15px 120px 15px;
+    gap: 20px;
+  }
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -193,6 +198,11 @@ const MicrophoneSection = styled.div`
   background: white;
   border-radius: 25px;
   padding: 40px;
+  
+  @media (max-width: 480px) {
+    padding: 25px;
+    gap: 20px;
+  }
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
@@ -315,6 +325,11 @@ const SuccessPopup = styled.div<{ show: boolean }>`
   transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
   text-align: center;
   min-width: 400px;
+  
+  @media (max-width: 480px) {
+    min-width: 300px;
+    padding: 30px;
+  }
 `;
 
 const SuccessTitle = styled.h2`
@@ -367,7 +382,7 @@ export default function ScenarioPage() {
     2: {
       title: "신나는 놀이터", 
       subtitle: "아미가 네 마음을 이해해요. 함께 해결해봐요!",
-      image: "/assets/KakaoTalk_Photo_2025-11-16-02-08-40.png",
+      image: "/assets/KakaoTalk_Photo_2025-11-16-02-08-25.png", // Scene 1과 같은 이미지 유지
       prompt: "용기를 내서 '같이 놀자!'라고 말해봐!",
     },
     3: {
@@ -492,7 +507,7 @@ export default function ScenarioPage() {
       await new Promise(resolve => setTimeout(resolve, 3000));
       await playAudioFile("/audio/step2.mp3");
       
-      // 3. Scene 2로 전환 (다음 마이크 클릭 대기)
+      // 3. Scene 2로 전환 (이미지는 그대로, 내부 상태만 변경)
       setCurrentScene(2);
       
     } else if (currentScene === 2) {
