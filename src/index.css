@@ -20,16 +20,18 @@
 }
 
 html, body, #root {
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
 }
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #f5f5f7;
+  background-color: #FFF9DE;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -38,71 +40,42 @@ body {
   user-select: none;
   font-size: 1rem; /* 14px */
   line-height: 1.5;
+  margin: 0;
+  padding: 0;
 }
 
 .App {
-  height: 100vh;
   width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
 }
 
-/* iPad Portrait: 768x1024 */
-@media only screen 
-  and (min-device-width: 768px) 
-  and (max-device-width: 1024px) 
-  and (orientation: portrait) {
+/* 개발자 도구 시뮬레이션 모드 대응 */
+@media screen and (max-width: 1024px) {
+  html, body, #root {
+    width: 100vw;
+    min-height: 100vh;
+  }
+  
   .App {
-    padding: 20px;
+    padding: 0;
+    width: 100vw;
+    min-height: 100vh;
+  }
+}
+
+/* iPad Portrait: 768x1024 */
+@media screen and (max-width: 768px) {
+  .App {
+    padding: 0;
   }
 }
 
 /* iPad Landscape: 1024x768 */
-@media only screen 
-  and (min-device-width: 768px) 
-  and (max-device-width: 1024px) 
-  and (orientation: landscape) {
+@media screen and (max-width: 1024px) and (orientation: landscape) {
   .App {
-    padding: 15px 30px;
-  }
-}
-
-/* iPad Pro 11" Portrait: 834x1194 */
-@media only screen 
-  and (min-device-width: 834px) 
-  and (max-device-width: 1194px) 
-  and (orientation: portrait) {
-  .App {
-    padding: 25px;
-  }
-}
-
-/* iPad Pro 11" Landscape: 1194x834 */
-@media only screen 
-  and (min-device-width: 834px) 
-  and (max-device-width: 1194px) 
-  and (orientation: landscape) {
-  .App {
-    padding: 20px 40px;
-  }
-}
-
-/* iPad Pro 12.9" Portrait: 1024x1366 */
-@media only screen 
-  and (min-device-width: 1024px) 
-  and (max-device-width: 1366px) 
-  and (orientation: portrait) {
-  .App {
-    padding: 30px;
-  }
-}
-
-/* iPad Pro 12.9" Landscape: 1366x1024 */
-@media only screen 
-  and (min-device-width: 1024px) 
-  and (max-device-width: 1366px) 
-  and (orientation: landscape) {
-  .App {
-    padding: 25px 50px;
+    padding: 0;
   }
 }

@@ -237,7 +237,11 @@ const avatarOptions = [
 
 const categories = ['얼굴', '머리', '옷', '악세서리'];
 
-export default function AvatarGeneration() {
+interface AvatarGenerationProps {
+  onComplete?: () => void;
+}
+
+export default function AvatarGeneration({ onComplete }: AvatarGenerationProps) {
   const [selectedAvatar, setSelectedAvatar] = useState<number | null>(null);
   const [currentCategory, setCurrentCategory] = useState(0);
 
@@ -255,7 +259,9 @@ export default function AvatarGeneration() {
 
   const handleComplete = () => {
     console.log('Avatar creation completed!');
-    // 아바타 생성 완료 로직
+    if (onComplete) {
+      onComplete();
+    }
   };
 
   return (

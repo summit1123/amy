@@ -1,70 +1,32 @@
-import { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import styled from 'styled-components';
-import Checklist from './components/Checklist';
-import Upload from './components/Upload';
-import AvatarGeneration from './components/AvatarGeneration';
+import IntroPage from './pages/IntroPage';
+import UploadPage from './pages/UploadPage';
+import ChecklistPage from './pages/ChecklistPage';
+import AvatarGenerationPage from './pages/AvatarGenerationPage';
+import MainDashboardPage from './pages/MainDashboardPage';
+import ScenarioPage from './pages/ScenarioPage';
 
-const Container = styled.div`
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: #FFF9DE;
-  transition: opacity 0.5s ease-in-out;
-  position: relative;
+const AppWrapper = styled.div`
+  width: 100%;
+  min-height: 100vh;
 `;
-
-const IntroImage = styled.img`
-  max-width: 90%;
-  max-height: 90%;
-  object-fit: contain;
-`;
-
 
 function App() {
-  const [currentPage, setCurrentPage] = useState('intro');
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
-
-  useEffect(() => {
-    if (currentPage === 'intro') {
-      const timer = setTimeout(() => {
-        setCurrentPage('upload');
-      }, 2000);
-      
-      return () => clearTimeout(timer);
-    }
-  }, [currentPage]);
-
-
-  const handleSkip = () => {
-    setCurrentPage('checklist');
-  };
-
-  const handleNextFromChecklist = () => {
-    setCurrentPage('avatar');
-  };
-
-  const renderPage = () => {
-    switch (currentPage) {
-      case 'intro':
-        return <IntroImage src="/intro.png" alt="Amy Avatar Intro" />;
-      case 'upload':
-        return <Upload onSkip={handleSkip} />;
-      case 'checklist':
-        return <Checklist onNext={handleNextFromChecklist} />;
-      case 'avatar':
-        return <AvatarGeneration />;
-      default:
-        return <IntroImage src="/intro.png" alt="Amy Avatar Intro" />;
-    }
-  };
-
   return (
-    <Container className="App">
-      {renderPage()}
-    </Container>
+    <AppWrapper className="App">
+      <Router>
+        <Routes>
+          <Route path="/" element={<Navigate to="/intro" replace />} />
+          <Route path="/intro" element={<IntroPage />} />
+          <Route path="/upload" element={<UploadPage />} />
+          <Route path="/checklist" element={<ChecklistPage />} />
+          <Route path="/avatar" element={<AvatarGenerationPage />} />
+          <Route path="/dashboard" element={<MainDashboardPage />} />
+          <Route path="/scenario" element={<ScenarioPage />} />
+        </Routes>
+      </Router>
+    </AppWrapper>
   );
 }
 
