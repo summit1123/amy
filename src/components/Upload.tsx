@@ -19,6 +19,11 @@ const Container = styled.div`
   padding: 40px;
   box-sizing: border-box;
   gap: 40px;
+  
+  @media (max-width: 480px) {
+    padding: 20px 15px;
+    gap: 25px;
+  }
 `;
 
 const MainCard = styled.div`
@@ -34,6 +39,12 @@ const MainCard = styled.div`
   overflow: hidden;
   padding: 60px 80px;
   position: relative;
+  
+  @media (max-width: 480px) {
+    padding: 30px 20px;
+    gap: 25px;
+    border-radius: 30px;
+  }
 `;
 
 const HeaderSection = styled.div`
@@ -60,6 +71,12 @@ const MainTitle = styled.div`
   font-weight: 700;
   letter-spacing: -0.40px;
   line-height: 60px;
+  
+  @media (max-width: 480px) {
+    font-size: 28px;
+    line-height: 40px;
+    letter-spacing: -0.28px;
+  }
   text-align: center;
   margin-bottom: 10px;
 `;
@@ -71,6 +88,12 @@ const SubTitle = styled.p`
   font-weight: 600;
   letter-spacing: -0.26px;
   line-height: 40px;
+  
+  @media (max-width: 480px) {
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: -0.18px;
+  }
   text-align: center;
   margin: 0;
 `;
@@ -91,6 +114,12 @@ const ContentTitle = styled.p`
   font-weight: 600;
   letter-spacing: -0.26px;
   line-height: 40px;
+  
+  @media (max-width: 480px) {
+    font-size: 20px;
+    line-height: 30px;
+    white-space: normal;
+  }
   margin: 0;
   text-align: center;
   white-space: nowrap;
@@ -103,6 +132,12 @@ const ContentDescription = styled.p`
   font-weight: 500;
   letter-spacing: -0.22px;
   line-height: 34px;
+  
+  @media (max-width: 480px) {
+    font-size: 16px;
+    line-height: 24px;
+    white-space: normal;
+  }
   margin: 0;
   text-align: center;
   white-space: nowrap;
@@ -121,6 +156,11 @@ const UploadSection = styled.div`
   transition: all 0.2s ease;
   flex: 1;
   min-height: 300px;
+  
+  @media (max-width: 480px) {
+    height: 250px;
+    min-height: 200px;
+  }
 
   &:hover {
     background-color: #ebebeb;
@@ -131,6 +171,12 @@ const UploadIconContainer = styled.div`
   width: 75px;
   height: 75px;
   margin-bottom: 28px;
+  
+  @media (max-width: 480px) {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 20px;
+  }
   display: flex;
   align-items: center;
   justify-content: center;
@@ -139,6 +185,11 @@ const UploadIconContainer = styled.div`
     width: 75px;
     height: 75px;
     color: #999;
+    
+    @media (max-width: 480px) {
+      width: 50px;
+      height: 50px;
+    }
   }
 `;
 
@@ -151,6 +202,12 @@ const UploadButton = styled.div`
   align-items: center;
   justify-content: center;
   margin-bottom: 16px;
+  
+  @media (max-width: 480px) {
+    height: 44px;
+    width: 160px;
+    margin-bottom: 12px;
+  }
 `;
 
 const UploadButtonText = styled.div`
@@ -161,6 +218,11 @@ const UploadButtonText = styled.div`
   letter-spacing: -0.26px;
   line-height: 36px;
   text-align: center;
+  
+  @media (max-width: 480px) {
+    font-size: 18px;
+    line-height: 28px;
+  }
 `;
 
 const UploadNote = styled.p`
@@ -181,6 +243,13 @@ const SkipButton = styled.div`
   font-weight: 600;
   letter-spacing: -0.26px;
   line-height: 36px;
+  
+  @media (max-width: 480px) {
+    font-size: 18px;
+    line-height: 28px;
+    top: 15px;
+    right: 15px;
+  }
   cursor: pointer;
   transition: color 0.2s ease;
   position: absolute;
